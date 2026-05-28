@@ -1,0 +1,2694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NightFuels — Curated Drink Bundles · JP's Fine Wine and Spirits · St. Marys, GA</title>
+<meta name="description" content="Pre-curated liquor bundles built around your night. Order in seconds, pick up in 15 minutes at JP's Fine Wine and Spirits — serving St. Marys & Kingsland, Georgia." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* DARK SPEAKEASY PALETTE — inverted for elegance */
+    --bg: #14100b;            /* deep espresso, the new "cream" */
+    --bg-2: #1c1812;          /* lifted panel */
+    --bg-3: #241f17;          /* card surface */
+    --bg-warm: #2a2419;       /* warm ink */
+    --cream: #f3ead8;         /* candlelit text */
+    --cream-2: #e6dcc4;       /* secondary text */
+    --cream-soft: rgba(243,234,216,.72);
+    --cream-faint: rgba(243,234,216,.45);
+    --ivory: #faf6ee;         /* used on lifted/inset cream cards */
+    --bone: #e8dfc7;
+    --gold: #d4af5c;          /* slightly brighter gold for the dark bg */
+    --gold-deep: #b88c3a;
+    --gold-glow: rgba(212,175,92,.18);
+    --ink: #14100b;           /* now matches bg for legacy refs */
+    --ink-soft: rgba(243,234,216,.65);
+    --burgundy: #6b2d2d;
+    --line: rgba(212,175,92,.18);
+    --line-strong: rgba(212,175,92,.35);
+    --shadow-soft: 0 20px 60px -20px rgba(0,0,0,.5);
+    --shadow-card: 0 30px 80px -30px rgba(0,0,0,.7);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Inter', sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .25 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+    opacity:.6;
+    pointer-events:none;
+    z-index:1000;
+    mix-blend-mode:overlay;
+  }
+
+  .announce{
+    background:#0a0805;
+    color:var(--cream);
+    text-align:center;
+    padding:10px 20px;
+    font-size:12px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    font-weight:400;
+    border-bottom:1px solid var(--line);
+  }
+  .announce .gold{color:var(--gold)}
+
+  nav{
+    position:sticky; top:0; z-index:100;
+    background:rgba(20,16,11,.85);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    padding:18px 48px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo{
+    font-family:'Cormorant Garamond', serif;
+    font-size:30px;
+    font-weight:500;
+    letter-spacing:.02em;
+    color:var(--cream);
+    text-decoration:none;
+    display:flex;
+    align-items:baseline;
+  }
+  .logo em{font-style:italic; font-weight:400; color:var(--gold)}
+  .nav-links{
+    display:flex; gap:42px;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:400;
+  }
+  .nav-links a{color:var(--cream-soft); text-decoration:none; transition:color .25s; position:relative}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-links a::after{
+    content:""; position:absolute;
+    bottom:-6px; left:0; right:0;
+    height:1px; background:var(--gold);
+    transform:scaleX(0); transition:transform .3s; transform-origin:left;
+  }
+  .nav-links a:hover::after{transform:scaleX(1)}
+  .nav-right{display:flex; gap:14px; align-items:center}
+  .cart-btn{
+    background:transparent;
+    border:1px solid var(--line-strong);
+    color:var(--cream);
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:500;
+    font-family:'Inter', sans-serif;
+    cursor:pointer;
+    transition:all .25s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    position:relative;
+  }
+  .cart-btn:hover{border-color:var(--gold); color:var(--gold)}
+  .cart-count{
+    background:var(--gold);
+    color:#14100b;
+    border-radius:999px;
+    min-width:22px;
+    height:22px;
+    font-size:11px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 7px;
+    font-weight:600;
+  }
+  .nav-cta{
+    background:var(--gold);
+    color:#14100b;
+    padding:11px 22px;
+    border-radius:999px;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:all .3s;
+    font-weight:600;
+  }
+  .nav-cta:hover{background:var(--cream); transform:translateY(-1px)}
+
+  .hero{
+    position:relative;
+    padding:100px 48px 120px;
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:var(--ink);
+    color:var(--cream);
+  }
+  /* Background video — full bleed, silent, looping */
+  .hero-video{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    z-index:0;
+    opacity:.55;
+  }
+  /* Atmospheric overlays sit on top of the video for legibility */
+  .hero-bg{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(10,6,4,.4) 0%, rgba(10,6,4,.2) 50%, rgba(10,6,4,.7) 100%),
+      radial-gradient(ellipse 70% 50% at 85% 20%, rgba(201,164,76,.25), transparent 65%),
+      radial-gradient(ellipse 60% 60% at 15% 90%, rgba(42,36,25,.3), transparent 65%);
+    z-index:1;
+  }
+  /* Override hero text colors for the dark video bg */
+  .hero h1{color:var(--cream)}
+  .hero h1 .italic{color:var(--gold)}
+  .hero .hero-script{color:var(--gold)}
+  .hero .eyebrow{color:var(--gold)}
+  .hero .eyebrow::before{background:var(--gold)}
+  .hero .hero-sub{color:rgba(248,243,233,.78)}
+  .hero .btn-primary{background:var(--cream); color:var(--ink)}
+  .hero .btn-primary:hover{background:var(--gold); color:var(--ink)}
+  .hero .btn-ghost{border-color:var(--cream); color:var(--cream)}
+  .hero .btn-ghost:hover{background:var(--cream); color:var(--ink)}
+  .hero-inner{
+    position:relative; z-index:3;
+    max-width:1380px;
+    margin:0 auto;
+    width:100%;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:80px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:32px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-weight:500;
+  }
+  .eyebrow::before{content:""; width:30px; height:1px; background:var(--gold)}
+  h1{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(54px, 8vw, 124px);
+    line-height:.98;
+    letter-spacing:-.015em;
+    margin-bottom:36px;
+    color:var(--cream);
+    font-weight:400;
+  }
+  h1 .italic{font-style:italic; font-weight:300; color:var(--gold)}
+  .hero-script{
+    font-family:'Caveat', cursive;
+    color:var(--gold);
+    font-size:.5em;
+    transform:rotate(-3deg);
+    display:inline-block;
+    font-weight:500;
+    letter-spacing:0;
+  }
+  .hero-sub{
+    font-size:19px;
+    line-height:1.65;
+    max-width:480px;
+    margin-bottom:44px;
+    color:var(--cream-soft);
+    font-weight:300;
+  }
+  .hero-cta-row{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+  .btn{
+    padding:18px 32px;
+    border-radius:999px;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:all .3s;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border:none;
+    cursor:pointer;
+    font-weight:500;
+    font-family:'Inter', sans-serif;
+  }
+  .btn-primary{background:var(--gold); color:#14100b}
+  .btn-primary:hover{
+    background:var(--cream);
+    color:#14100b;
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(212,175,92,.3);
+  }
+  .btn-ghost{border:1px solid var(--cream); color:var(--cream); background:transparent}
+  .btn-ghost:hover{background:var(--cream); color:#14100b}
+  .arrow{transition:transform .3s}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  .hero-card-wrap{position:relative}
+  .hero-card{
+    position:relative;
+    background:var(--ivory);
+    color:#2a2419;
+    border-radius:8px;
+    padding:48px 40px;
+    box-shadow:var(--shadow-card);
+    border:1px solid rgba(212,175,92,.3);
+  }
+  .hero-card::before{
+    content:"";
+    position:absolute;
+    top:14px; left:14px; right:14px; bottom:14px;
+    border:1px solid rgba(184,140,58,.35);
+    border-radius:4px;
+    pointer-events:none;
+  }
+  .card-corner{
+    position:absolute;
+    top:24px; right:30px;
+    font-family:'Caveat', cursive;
+    font-size:18px;
+    color:var(--gold-deep);
+    transform:rotate(8deg);
+  }
+  .card-label{
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    margin-bottom:12px;
+    font-weight:500;
+  }
+  .card-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:54px;
+    line-height:1;
+    margin-bottom:6px;
+    font-weight:400;
+    color:#2a2419;
+  }
+  .card-title em{font-style:italic; font-weight:300; color:var(--gold-deep)}
+  .card-tagline{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:18px;
+    color:rgba(42,36,25,.65);
+    margin-bottom:32px;
+  }
+  .card-line{
+    height:1px;
+    background:linear-gradient(to right, transparent, var(--gold-deep), transparent);
+    margin:24px 0;
+  }
+  .card-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    font-size:14px;
+    color:rgba(42,36,25,.65);
+    border-bottom:1px dotted rgba(42,36,25,.15);
+  }
+  .card-row:last-of-type{border:none}
+  .card-row span:last-child{color:#2a2419; font-weight:500}
+  .card-stamp{
+    position:absolute;
+    bottom:-20px; right:-20px;
+    width:110px; height:110px;
+    background:#14100b;
+    color:var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    font-family:'Cormorant Garamond', serif;
+    text-align:center;
+    line-height:1;
+    transform:rotate(-8deg);
+    box-shadow:0 12px 28px rgba(0,0,0,.5);
+  }
+  .card-stamp .num{font-size:38px; font-weight:500}
+  .card-stamp .lbl{
+    font-size:9px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    margin-top:4px;
+    color:var(--cream);
+  }
+
+  section{padding:130px 48px; position:relative}
+  .container{max-width:1380px; margin:0 auto}
+  .section-eyebrow{
+    font-size:12px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:24px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-weight:500;
+  }
+  .section-eyebrow::before{content:""; width:30px; height:1px; background:var(--gold)}
+  h2{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(44px, 6vw, 86px);
+    line-height:1.02;
+    letter-spacing:-.01em;
+    margin-bottom:50px;
+    max-width:1000px;
+    font-weight:400;
+    color:var(--cream);
+  }
+  h2 .italic{font-style:italic; color:var(--gold); font-weight:300}
+
+  .how{
+    background:var(--bg-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .steps{display:grid; grid-template-columns:repeat(3, 1fr); gap:60px; margin-top:30px}
+  .step{position:relative; padding-top:40px}
+  .step::before{
+    content:""; position:absolute;
+    top:0; left:0;
+    width:80px; height:1px;
+    background:var(--gold);
+  }
+  .step-num{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--gold);
+    margin-bottom:18px;
+  }
+  .step-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:36px;
+    margin-bottom:14px;
+    font-weight:500;
+    line-height:1.1;
+    color:var(--cream);
+  }
+  .step-text{color:var(--cream-soft); font-size:16px; line-height:1.7}
+
+  .bundles-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-bottom:70px;
+  }
+  .bundles-head p{max-width:420px; color:var(--cream-soft); font-size:17px; line-height:1.6}
+  .bundle-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:30px}
+  .bundle{
+    position:relative;
+    background:var(--bg-3);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:36px 32px 32px;
+    overflow:hidden;
+    min-height:540px;
+    display:flex;
+    flex-direction:column;
+    transition:all .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .bundle:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-card);
+    border-color:var(--gold);
+  }
+  .bundle-num{
+    position:absolute;
+    top:24px; right:32px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--gold);
+    letter-spacing:.05em;
+  }
+  .bundle-tag{
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:18px;
+    font-weight:500;
+  }
+  .bundle-name{
+    font-family:'Cormorant Garamond', serif;
+    font-size:48px;
+    line-height:1;
+    margin-bottom:6px;
+    font-weight:400;
+    color:var(--cream);
+  }
+  .bundle-name em{font-style:italic; font-weight:300; color:var(--gold)}
+  .bundle-mood{
+    font-family:'Caveat', cursive;
+    font-size:22px;
+    color:var(--gold);
+    margin-bottom:18px;
+  }
+  .bundle-desc{
+    font-size:15px;
+    line-height:1.65;
+    color:var(--cream-soft);
+    margin-bottom:24px;
+    flex-grow:1;
+  }
+  .bundle-includes{
+    border-top:1px dotted var(--line-strong);
+    padding-top:18px;
+    margin-bottom:24px;
+  }
+  .bundle-includes-label{
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+    font-weight:500;
+  }
+  .bundle-includes-list{font-size:13px; line-height:1.8; color:var(--cream-soft)}
+  .bundle-foot{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+  .bundle-price{
+    font-family:'Cormorant Garamond', serif;
+    font-size:42px;
+    line-height:1;
+    color:var(--cream);
+    font-weight:500;
+  }
+  .bundle-price small{
+    font-style:italic;
+    font-size:13px;
+    color:var(--cream-faint);
+    margin-left:4px;
+    font-weight:300;
+  }
+  .bundle-cta{
+    background:var(--gold);
+    color:#14100b;
+    padding:11px 18px;
+    border-radius:999px;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    transition:all .3s;
+    font-weight:500;
+    border:none;
+    cursor:pointer;
+    font-family:'Inter', sans-serif;
+  }
+  .bundle:hover .bundle-cta{background:var(--gold-deep)}
+  .bundle-cta.added{background:var(--theme-bright, var(--gold)); animation:pop .3s ease}
+  @keyframes pop{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.08)}
+    100%{transform:scale(1)}
+  }
+
+  .bundle.featured{background:var(--ink); color:var(--cream); border-color:var(--ink)}
+  .bundle.featured .bundle-name{color:var(--cream)}
+  .bundle.featured .bundle-name em{color:var(--gold)}
+  .bundle.featured .bundle-tag{color:var(--gold)}
+  .bundle.featured .bundle-mood{color:var(--gold)}
+  .bundle.featured .bundle-desc{color:rgba(248,243,233,.8)}
+  .bundle.featured .bundle-includes{border-color:rgba(248,243,233,.2)}
+  .bundle.featured .bundle-includes-label{color:var(--gold)}
+  .bundle.featured .bundle-includes-list{color:rgba(248,243,233,.7)}
+  .bundle.featured .bundle-foot{border-color:rgba(248,243,233,.2)}
+  .bundle.featured .bundle-price{color:var(--cream)}
+  .bundle.featured .bundle-price small{color:rgba(248,243,233,.5)}
+  .bundle.featured .bundle-cta{background:var(--gold); color:var(--ink)}
+  .bundle.featured:hover .bundle-cta{background:var(--cream)}
+  .bundle.featured .bundle-num{color:var(--gold)}
+
+  /* ============ PER-BUNDLE COLOR THEMES ============ */
+  /* Each bundle gets its own accent color for visual identity.
+     The accent shows in: mood script, "Inside" label, hover border,
+     bundle number, top color stripe, and a soft gradient at the top. */
+
+  .bundle{
+    --theme: #d4b87a;
+    --theme-bright: #e8cc8a;
+    --theme-soft: rgba(212,184,122,.10);
+  }
+  .bundle::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:4px;
+    background:var(--theme);
+    z-index:1;
+  }
+  .bundle::after{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:160px;
+    background:linear-gradient(180deg, var(--theme-soft), transparent);
+    z-index:0;
+    pointer-events:none;
+  }
+  .bundle > *{position:relative; z-index:2}
+  .bundle:hover{border-color:var(--theme)}
+  .bundle .bundle-num{color:var(--theme)}
+  .bundle .bundle-tag{color:var(--theme)}
+  .bundle .bundle-name em{color:var(--theme)}
+  .bundle .bundle-mood{color:var(--theme)}
+  .bundle .bundle-includes-label{color:var(--theme)}
+  .bundle .bundle-cta{background:var(--theme); color:#14100b}
+  .bundle:hover .bundle-cta{background:var(--theme-bright)}
+
+  /* Party Night — Coral/Blush */
+  .bundle.theme-party{
+    --theme: #e89578;
+    --theme-bright: #f0a890;
+    --theme-soft: rgba(232,149,120,.10);
+  }
+
+  /* Date Night uses .featured (dark+gold) — overrides the per-theme */
+  .bundle.featured::before{background:var(--gold)}
+  .bundle.featured::after{
+    background:linear-gradient(180deg, rgba(212,175,92,.15), transparent);
+  }
+
+  /* Game Night — Forest Green */
+  .bundle.theme-game{
+    --theme: #8aa872;
+    --theme-bright: #a3bf8b;
+    --theme-soft: rgba(138,168,114,.10);
+  }
+
+  /* Quiet One — Soft Sage */
+  .bundle.theme-quiet{
+    --theme: #a8b59c;
+    --theme-bright: #c0ccb4;
+    --theme-soft: rgba(168,181,156,.10);
+  }
+
+  /* Sun's Out — Apricot/Peach */
+  .bundle.theme-suns{
+    --theme: #e8b07a;
+    --theme-bright: #f0c598;
+    --theme-soft: rgba(232,176,122,.10);
+  }
+
+  /* After Hours — Plum/Wine */
+  .bundle.theme-after{
+    --theme: #b07088;
+    --theme-bright: #c688a0;
+    --theme-soft: rgba(176,112,136,.10);
+  }
+
+  /* Girls Night Out — Rose Gold */
+  .bundle.theme-girls{
+    --theme: #e0a0b0;
+    --theme-bright: #ecbac6;
+    --theme-soft: rgba(224,160,176,.10);
+  }
+
+  /* Bachelor Party — Navy + Brass */
+  .bundle.theme-bachelor{
+    --theme: #7888a8;
+    --theme-bright: #94a3c0;
+    --theme-soft: rgba(120,136,168,.10);
+  }
+
+  /* Graduation Party — Champagne Gold */
+  .bundle.theme-grad{
+    --theme: #e0c890;
+    --theme-bright: #ecd8a8;
+    --theme-soft: rgba(224,200,144,.10);
+  }
+
+  /* COCKTAIL VIDEO REEL — looping silent video backgrounds */
+  .reel{
+    background:var(--ink);
+    color:var(--cream);
+    border-top:6px solid var(--gold);
+    overflow:hidden;
+  }
+  .reel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-bottom:60px;
+  }
+  .reel h2{color:var(--cream); margin-bottom:16px}
+  .reel h2 .italic{color:var(--gold)}
+  .reel-head p{
+    max-width:420px;
+    color:rgba(248,243,233,.7);
+    font-size:17px;
+    line-height:1.65;
+  }
+  .reel .section-eyebrow{color:var(--gold)}
+  .reel .section-eyebrow::before{background:var(--gold)}
+
+  .reel-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:32px}
+  .video-card{
+    background:rgba(248,243,233,.04);
+    border:1px solid rgba(201,164,76,.25);
+    border-radius:6px;
+    overflow:hidden;
+    transition:all .4s ease;
+    position:relative;
+  }
+  .video-card:hover{
+    border-color:var(--gold);
+    transform:translateY(-4px);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+  }
+  .video-frame{
+    position:relative;
+    aspect-ratio:16/9;
+    background:#000;
+    overflow:hidden;
+  }
+  .video-frame video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .video-frame::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.4) 100%);
+    pointer-events:none;
+  }
+  .video-tag{
+    position:absolute;
+    bottom:14px; left:14px;
+    z-index:2;
+    background:rgba(10,6,4,.7);
+    backdrop-filter:blur(8px);
+    color:var(--gold);
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    border:1px solid rgba(201,164,76,.4);
+    font-weight:500;
+  }
+  .video-meta{
+    padding:24px 26px 26px;
+    border-top:1px solid rgba(201,164,76,.2);
+  }
+  .video-num{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .video-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:30px;
+    line-height:1.1;
+    margin-bottom:8px;
+    font-weight:500;
+  }
+  .video-title em{font-style:italic; font-weight:300; color:var(--gold)}
+  .video-recipe{
+    font-size:13px;
+    color:rgba(248,243,233,.55);
+    line-height:1.7;
+    margin-bottom:16px;
+    font-family:'Inter', sans-serif;
+  }
+  .video-recipe strong{
+    color:var(--gold);
+    font-weight:500;
+    letter-spacing:.05em;
+    display:block;
+    font-size:11px;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .video-pair{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Caveat', cursive;
+    font-size:18px;
+    color:var(--gold);
+    padding-top:14px;
+    border-top:1px dotted rgba(201,164,76,.3);
+    width:100%;
+  }
+  .video-pair::before{content:"❦"; font-family:'Cormorant Garamond', serif}
+
+  /* ADD-ONS */
+  .addons{background:var(--bg-2); border-top:1px solid var(--line)}
+  .addon-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; margin-top:30px}
+  .addon{
+    background:var(--bg-3);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:28px 24px;
+    text-align:center;
+    transition:all .3s;
+    cursor:pointer;
+  }
+  .addon:hover{
+    border-color:var(--gold);
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-soft);
+  }
+  .addon-icon{
+    font-family:'Cormorant Garamond', serif;
+    font-size:42px;
+    color:var(--gold);
+    margin-bottom:14px;
+    font-style:italic;
+  }
+  .addon-name{
+    font-family:'Cormorant Garamond', serif;
+    font-size:24px;
+    margin-bottom:6px;
+    font-weight:500;
+    color:var(--cream);
+  }
+  .addon-desc{
+    font-size:13px;
+    color:var(--cream-soft);
+    margin-bottom:14px;
+    line-height:1.5;
+  }
+  .addon-price{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .addon-price small{
+    font-size:12px;
+    color:var(--cream-soft);
+    font-weight:300;
+    font-style:italic;
+  }
+
+  .promise{
+    background:var(--ink);
+    color:var(--cream);
+    padding:90px 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  .promise-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+    opacity:.18;
+    filter:saturate(.6);
+  }
+  .promise-overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:
+      linear-gradient(90deg, rgba(10,6,4,.92) 0%, rgba(42,36,25,.7) 50%, rgba(10,6,4,.85) 100%);
+  }
+  .promise-inner{
+    position:relative;
+    z-index:2;
+    max-width:1380px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:80px;
+    align-items:start;
+  }
+  .promise h2{color:var(--cream); margin-bottom:20px}
+  .promise h2 .italic{color:var(--gold)}
+  .promise .section-eyebrow{color:var(--gold)}
+  .promise .section-eyebrow::before{background:var(--gold)}
+  .promise-lead{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:22px;
+    line-height:1.5;
+    color:rgba(248,243,233,.85);
+  }
+  .promise-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px 50px}
+  .promise-item{border-top:1px solid rgba(201,164,76,.4); padding-top:20px}
+  .promise-num{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:16px;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .promise-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:26px;
+    margin-bottom:8px;
+    font-weight:500;
+  }
+  .promise-text{font-size:15px; color:rgba(248,243,233,.7); line-height:1.6}
+
+  .events{background:var(--bg); position:relative}
+  .events-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+  }
+  .events-img{
+    position:relative;
+    aspect-ratio:4/5;
+    background:var(--ink);
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid rgba(201,164,76,.3);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:var(--shadow-card);
+  }
+  .events-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+    opacity:.7;
+  }
+  .events-overlay{
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(10,6,4,.3) 0%, rgba(10,6,4,.65) 100%),
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(42,36,25,.25), rgba(10,6,4,.5));
+    z-index:1;
+  }
+  .events-img::before{
+    content:"";
+    position:absolute;
+    top:20px; left:20px; right:20px; bottom:20px;
+    border:1px solid rgba(201,164,76,.4);
+    border-radius:3px;
+    z-index:2;
+    pointer-events:none;
+  }
+  .events-monogram{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    text-align:center;
+    color:var(--gold);
+    z-index:3;
+    position:relative;
+    padding:0 30px;
+  }
+  .events-monogram .events-script{
+    font-family:'Caveat', cursive;
+    font-size:22px;
+    font-style:normal;
+    color:var(--gold);
+    margin-bottom:12px;
+    opacity:.85;
+  }
+  .events-monogram .big{
+    font-size:140px;
+    line-height:1;
+    font-weight:300;
+    color:var(--cream);
+    text-shadow:0 4px 30px rgba(0,0,0,.5);
+    letter-spacing:.02em;
+  }
+  .events-monogram .label{
+    font-size:13px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-top:18px;
+    font-style:normal;
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    padding-top:18px;
+    border-top:1px solid rgba(201,164,76,.4);
+    display:inline-block;
+  }
+  .events-content p{
+    font-size:18px;
+    line-height:1.7;
+    color:var(--cream-soft);
+    margin-bottom:24px;
+    max-width:480px;
+  }
+  .events-list{list-style:none; margin:30px 0 40px}
+  .events-list li{
+    padding:16px 0;
+    border-bottom:1px dotted var(--line-strong);
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    font-size:16px;
+    color:var(--cream);
+  }
+  .events-list li::before{
+    content:"❦";
+    color:var(--gold);
+    font-size:18px;
+    line-height:1.4;
+  }
+  .events-list strong{font-weight:500; display:block; margin-bottom:4px; color:var(--cream)}
+  .events-list span{color:var(--cream-soft); font-size:14px}
+
+  /* WAITLIST */
+  .waitlist{
+    background:var(--bg-2);
+    text-align:center;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .waitlist .container{max-width:780px}
+  .waitlist .section-eyebrow{justify-content:center}
+  .waitlist .section-eyebrow::after{
+    content:""; width:30px; height:1px; background:var(--gold);
+  }
+  .waitlist h2{margin-left:auto; margin-right:auto}
+  .waitlist p.lead{
+    font-size:18px;
+    color:var(--cream-soft);
+    line-height:1.7;
+    margin-bottom:40px;
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .waitlist-form{
+    display:flex;
+    gap:12px;
+    max-width:520px;
+    margin:0 auto;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .waitlist-input{
+    flex:1;
+    min-width:200px;
+    padding:18px 24px;
+    border:1px solid var(--line-strong);
+    background:var(--bg-3);
+    border-radius:999px;
+    font-family:'Inter', sans-serif;
+    font-size:14px;
+    color:var(--cream);
+    transition:border .25s;
+  }
+  .waitlist-input::placeholder{color:var(--cream-faint)}
+  .waitlist-input:focus{outline:none; border-color:var(--gold)}
+  .waitlist-note{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--cream-soft);
+    margin-top:24px;
+  }
+  .waitlist-success{
+    display:none;
+    margin-top:30px;
+    padding:40px 30px;
+    background:var(--bg-3);
+    border:1px solid var(--gold);
+    border-radius:8px;
+    position:relative;
+    text-align:center;
+  }
+  .waitlist-success.show{display:block; animation:fadeIn .5s ease}
+  @keyframes fadeIn{
+    from{opacity:0; transform:translateY(10px)}
+    to{opacity:1; transform:translateY(0)}
+  }
+  .waitlist-success::before{
+    content:"";
+    position:absolute;
+    top:8px; left:8px; right:8px; bottom:8px;
+    border:1px solid var(--line-strong);
+    border-radius:4px;
+    pointer-events:none;
+  }
+  .success-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--gold);
+    font-size:14px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .success-headline{
+    font-family:'Cormorant Garamond', serif;
+    font-size:38px;
+    line-height:1.15;
+    color:var(--cream);
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  .success-headline .italic{
+    font-style:italic;
+    color:var(--gold);
+    font-weight:300;
+  }
+  .success-text{
+    font-size:16px;
+    color:var(--cream-soft);
+    line-height:1.65;
+    max-width:480px;
+    margin:0 auto;
+  }
+
+  .reviews{background:var(--bg)}
+  .review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:30px}
+  .review{
+    background:var(--bg-3);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:36px 32px;
+    position:relative;
+    transition:all .3s;
+  }
+  .review:hover{border-color:var(--gold); transform:translateY(-3px)}
+  .review-quote{
+    font-family:'Cormorant Garamond', serif;
+    font-size:60px;
+    color:var(--gold);
+    line-height:.5;
+    margin-bottom:14px;
+    font-style:italic;
+  }
+  .review-text{
+    font-family:'Cormorant Garamond', serif;
+    font-size:21px;
+    line-height:1.5;
+    margin-bottom:28px;
+    color:var(--cream);
+    font-weight:400;
+  }
+  .review-author{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1px dotted var(--line-strong);
+    padding-top:18px;
+  }
+  .review-name{font-size:14px; color:var(--cream); font-weight:500}
+  .review-bundle{
+    font-family:'Caveat', cursive;
+    font-size:18px;
+    color:var(--gold);
+  }
+
+  .visit{
+    background:var(--ink);
+    color:var(--cream);
+    padding:120px 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  .visit-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+    opacity:.25;
+    filter:saturate(.8);
+  }
+  .visit-overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:
+      linear-gradient(180deg, rgba(42,36,25,.55) 0%, rgba(10,6,4,.85) 100%),
+      radial-gradient(ellipse 80% 50% at 50% 30%, rgba(168,132,47,.08), transparent 70%);
+  }
+  .map-wrap{position:relative; z-index:2}
+  .visit-inner{
+    position:relative;
+    z-index:2;
+    max-width:1380px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+  }
+  .visit h2{color:var(--cream)}
+  .visit h2 .italic{color:var(--gold)}
+  .visit .section-eyebrow{color:var(--gold)}
+  .visit .section-eyebrow::before{background:var(--gold)}
+  .visit p{
+    font-size:18px;
+    line-height:1.7;
+    color:rgba(248,243,233,.75);
+    margin-bottom:30px;
+  }
+  .visit-info{
+    background:rgba(248,243,233,.04);
+    border:1px solid rgba(201,164,76,.3);
+    border-radius:6px;
+    padding:40px;
+    position:relative;
+  }
+  .visit-info::before{
+    content:"";
+    position:absolute;
+    top:14px; left:14px; right:14px; bottom:14px;
+    border:1px solid rgba(201,164,76,.15);
+    border-radius:3px;
+    pointer-events:none;
+  }
+  .visit-block{
+    margin-bottom:28px;
+    padding-bottom:28px;
+    border-bottom:1px dotted rgba(201,164,76,.3);
+  }
+  .visit-block:last-child{border:none; margin:0; padding:0}
+  .visit-label{
+    font-size:11px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+    font-weight:500;
+  }
+  .visit-value{
+    font-family:'Cormorant Garamond', serif;
+    font-size:26px;
+    line-height:1.3;
+    color:var(--cream);
+    font-weight:400;
+  }
+  .visit-value a{color:var(--cream); text-decoration:none; transition:color .25s}
+  .visit-value a:hover{color:var(--gold)}
+  .visit-sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:16px;
+    color:rgba(248,243,233,.6);
+    margin-top:6px;
+  }
+
+  .map-wrap{
+    max-width:1380px;
+    margin:80px auto 0;
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid rgba(201,164,76,.3);
+    position:relative;
+    background:rgba(248,243,233,.04);
+  }
+  .map-frame{
+    position:relative;
+    aspect-ratio:21/8;
+    width:100%;
+  }
+  .map-frame iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:none;
+    filter:saturate(.85) contrast(.95);
+  }
+  .map-overlay{
+    position:absolute;
+    bottom:24px; left:24px;
+    background:var(--ink);
+    border:1px solid var(--gold);
+    padding:18px 24px;
+    border-radius:4px;
+    z-index:2;
+    pointer-events:none;
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
+  }
+  .map-overlay .label{
+    font-size:10px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:4px;
+    font-weight:500;
+  }
+  .map-overlay .name{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    color:var(--cream);
+    font-weight:500;
+    line-height:1.1;
+  }
+  .map-overlay .city{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:14px;
+    color:rgba(248,243,233,.6);
+    margin-top:4px;
+  }
+
+  footer{
+    background:var(--ink);
+    border-top:1px solid rgba(201,164,76,.2);
+    padding:60px 48px 36px;
+    color:rgba(248,243,233,.6);
+  }
+  .foot-grid{
+    max-width:1380px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:60px;
+    margin-bottom:50px;
+  }
+  .foot-brand .logo{font-size:38px; color:var(--cream); margin-bottom:18px}
+  .foot-brand .logo em{color:var(--gold)}
+  .foot-brand p{font-size:14px; max-width:340px; line-height:1.7}
+  .foot-col h4{
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:20px;
+    font-weight:500;
+  }
+  .foot-col a{
+    display:block;
+    color:rgba(248,243,233,.6);
+    text-decoration:none;
+    margin-bottom:10px;
+    font-size:14px;
+    transition:color .25s;
+  }
+  .foot-col a:hover{color:var(--cream)}
+  .foot-bottom{
+    max-width:1380px;
+    margin:0 auto;
+    padding-top:30px;
+    border-top:1px solid rgba(201,164,76,.15);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  .foot-bottom .legal{color:var(--gold)}
+
+  /* ============ CART DRAWER ============ */
+  .cart-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(10,6,4,.55);
+    backdrop-filter:blur(4px);
+    z-index:998;
+    opacity:0;
+    visibility:hidden;
+    transition:all .35s ease;
+  }
+  .cart-overlay.open{opacity:1; visibility:visible}
+  .cart-drawer{
+    position:fixed;
+    top:0; right:0; bottom:0;
+    width:480px;
+    max-width:100%;
+    background:var(--bg-2);
+    color:var(--cream);
+    z-index:999;
+    transform:translateX(100%);
+    transition:transform .4s cubic-bezier(.2,.8,.2,1);
+    display:flex;
+    flex-direction:column;
+    box-shadow:-30px 0 80px rgba(0,0,0,.6);
+    border-left:1px solid var(--line-strong);
+  }
+  .cart-drawer.open{transform:translateX(0)}
+  .cart-head{
+    padding:28px 32px 20px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .cart-head h3{
+    font-family:'Cormorant Garamond', serif;
+    font-size:34px;
+    font-weight:500;
+    color:var(--cream);
+  }
+  .cart-head h3 em{font-style:italic; color:var(--gold); font-weight:300}
+  .cart-close{
+    background:transparent;
+    border:none;
+    font-size:28px;
+    color:var(--cream-soft);
+    cursor:pointer;
+    line-height:1;
+    transition:color .2s;
+  }
+  .cart-close:hover{color:var(--gold)}
+  .cart-items{
+    flex:1;
+    overflow-y:auto;
+    padding:20px 32px;
+  }
+  .cart-empty{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--cream-soft);
+  }
+  .cart-empty .big{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:32px;
+    color:var(--gold);
+    margin-bottom:12px;
+  }
+  .cart-empty p{font-size:15px; line-height:1.6}
+  .cart-item{
+    padding:18px 0;
+    border-bottom:1px dotted var(--line-strong);
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .cart-item-info{flex:1}
+  .cart-item-name{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    color:var(--cream);
+    font-weight:500;
+    margin-bottom:2px;
+  }
+  .cart-item-name em{font-style:italic; color:var(--gold); font-weight:300}
+  .cart-item-tag{
+    font-size:11px;
+    letter-spacing:.15em;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .cart-item-controls{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+  }
+  .qty-btn{
+    width:24px; height:24px;
+    border-radius:50%;
+    background:transparent;
+    border:1px solid var(--line-strong);
+    color:var(--cream);
+    cursor:pointer;
+    font-size:14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    transition:all .2s;
+    font-family:'Inter', sans-serif;
+    line-height:1;
+    padding:0;
+  }
+  .qty-btn:hover{background:var(--gold); color:#14100b; border-color:var(--gold)}
+  .qty-num{
+    font-family:'Cormorant Garamond', serif;
+    font-size:18px;
+    color:var(--cream);
+    min-width:20px;
+    text-align:center;
+    font-weight:500;
+  }
+  .cart-item-remove{
+    background:transparent;
+    border:none;
+    color:var(--cream-soft);
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    cursor:pointer;
+    padding:4px 0;
+    margin-left:14px;
+    text-decoration:underline;
+    text-underline-offset:3px;
+    transition:color .2s;
+    font-family:'Inter', sans-serif;
+  }
+  .cart-item-remove:hover{color:var(--gold)}
+  .cart-item-price{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    color:var(--cream);
+    font-weight:500;
+  }
+  .cart-foot{
+    padding:24px 32px 32px;
+    border-top:1px solid var(--line);
+    background:var(--bg-3);
+  }
+  .cart-totals{
+    margin-bottom:20px;
+  }
+  .cart-row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    font-size:14px;
+    color:var(--cream-soft);
+  }
+  .cart-row.total{
+    font-size:18px;
+    color:var(--cream);
+    border-top:1px dotted var(--line-strong);
+    padding-top:14px;
+    margin-top:8px;
+    font-weight:500;
+  }
+  .cart-row.total .amount{
+    font-family:'Cormorant Garamond', serif;
+    font-size:32px;
+    color:var(--cream);
+    font-weight:500;
+  }
+  .cart-checkout-link{
+    width:100%;
+    padding:20px;
+    background:var(--gold);
+    color:#14100b;
+    border:none;
+    border-radius:999px;
+    font-family:'Inter', sans-serif;
+    font-size:14px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:500;
+    cursor:pointer;
+    transition:all .3s;
+    margin-bottom:14px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    text-align:center;
+  }
+  .cart-checkout-link::before{
+    content:"☎";
+    font-size:18px;
+    color:var(--gold);
+    transition:color .3s;
+  }
+  .cart-checkout-link:hover{
+    background:var(--cream);
+    color:#14100b;
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(212,175,92,.35);
+  }
+  .cart-checkout-link:hover::before{color:#14100b}
+  .cart-fineprint{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:13px;
+    color:var(--cream-soft);
+    text-align:center;
+    margin-top:14px;
+    line-height:1.5;
+  }
+
+  /* Toast notification when adding to cart */
+  .toast{
+    position:fixed;
+    bottom:30px; right:30px;
+    background:var(--bg-3);
+    color:var(--cream);
+    padding:18px 24px;
+    border-radius:6px;
+    border:1px solid var(--gold);
+    box-shadow:0 12px 40px rgba(0,0,0,.6);
+    z-index:1100;
+    transform:translateY(120%);
+    transition:transform .4s cubic-bezier(.2,.8,.2,1);
+    font-size:14px;
+    max-width:340px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .toast.show{transform:translateY(0)}
+  .toast .check{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:var(--gold);
+    color:#14100b;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+    font-size:14px;
+    flex-shrink:0;
+  }
+  .toast strong{color:var(--gold); font-weight:500}
+
+  @media (max-width: 980px){
+    .hero-inner, .events-inner, .visit-inner, .promise-inner, .foot-grid{
+      grid-template-columns:1fr; gap:50px;
+    }
+    .steps, .bundle-grid, .review-grid, .promise-grid, .reel-grid{grid-template-columns:1fr; gap:30px}
+    .addon-grid{grid-template-columns:1fr 1fr; gap:16px}
+    .reel-head{flex-direction:column; align-items:flex-start}
+    .nav-links{display:none}
+    nav{padding:14px 24px}
+    section, .promise, .visit{padding:80px 24px}
+    .hero{padding:60px 24px 80px}
+    .card-stamp{display:none}
+    footer{padding:50px 24px 30px}
+    .map-frame{aspect-ratio:1/1}
+    .map-overlay{bottom:14px; left:14px; padding:14px 18px}
+    .cart-drawer{width:100%}
+    .toast{bottom:20px; right:20px; left:20px; max-width:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="announce">
+  ⚜ JP's Fine Wine and Spirits · St. Marys & Kingsland · <span class="gold">Free Pickup in 15 Minutes</span> ⚜
+</div>
+
+<nav>
+  <a href="#" class="logo">Night<em>fuels</em></a>
+  <div class="nav-links">
+    <a href="#bundles">The Bundles</a>
+    <a href="menu.html">Drink Menu</a>
+    <a href="#how">How It Works</a>
+    <a href="#events">Events</a>
+    <a href="#visit">Visit Us</a>
+  </div>
+  <div class="nav-right">
+    <button class="cart-btn" id="cartBtn">Cart <span class="cart-count" id="cartCount">0</span></button>
+    <a href="#bundles" class="nav-cta">Order Now</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto"
+         poster="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1920&q=80">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-whiskey-into-a-glass-with-ice-46247-large.mp4" type="video/mp4">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-bartender-pouring-a-cocktail-in-a-glass-1224-large.mp4" type="video/mp4">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-cocktail-into-a-glass-1224-large.mp4" type="video/mp4">
+  </video>
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">JP's Fine Wine and Spirits · St. Marys, GA</div>
+      <h1>
+        Curated drink<br>
+        bundles for the<br>
+        <span class="italic">night you're</span><br>
+        <span class="hero-script">actually</span> having.
+      </h1>
+      <p class="hero-sub">
+        Hand-built liquor bundles, matched to your mood. Order in seconds, pick up in minutes — no aisles, no second-guessing, no last-minute Walmart runs.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#bundles" class="btn btn-primary">Browse Bundles <span class="arrow">→</span></a>
+        <a href="#how" class="btn btn-ghost">How It Works</a>
+      </div>
+    </div>
+    <div class="hero-card-wrap">
+      <div class="hero-card">
+        <div class="card-corner">tonight's pick</div>
+        <div class="card-label">Most Ordered This Week</div>
+        <div class="card-title">Date <em>Night</em></div>
+        <div class="card-tagline">"the slow burn"</div>
+        <div class="card-line"></div>
+        <div class="card-row"><span>Crafted for</span><span>Two</span></div>
+        <div class="card-row"><span>Bottles included</span><span>2 + Mixers</span></div>
+        <div class="card-row"><span>Pairing card</span><span>Included</span></div>
+        <div class="card-row"><span>Bundle price</span><span>$58</span></div>
+      </div>
+      <div class="card-stamp">
+        <div class="num">15</div>
+        <div class="lbl">Min Pickup</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-eyebrow">The Experience</div>
+    <h2>Three steps. Fifteen minutes.<br><span class="italic">Zero aisle-wandering.</span></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">— No. 01</div>
+        <div class="step-title">Choose your mood</div>
+        <p class="step-text">Tell us the night you're planning. Each bundle is built by people who actually drink — not algorithms guessing.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">— No. 02</div>
+        <div class="step-title">Order in seconds</div>
+        <p class="step-text">Tap, pay, done. Apple Pay, Google Pay, or card. We start packing while you head our way.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">— No. 03</div>
+        <div class="step-title">Pick up & pour</div>
+        <p class="step-text">Pull up to the curb at JP's Fine Wine and Spirits, show your code, and your bundle is in your hands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bundles">
+  <div class="container">
+    <div class="bundles-head">
+      <div>
+        <div class="section-eyebrow">The Collection</div>
+        <h2>Nine nights,<br><span class="italic">nine builds.</span></h2>
+      </div>
+      <p>Each bundle is hand-curated for its moment — bottles, mixers, garnishes, and a pairing card. Swap anything you don't like at checkout, no questions.</p>
+    </div>
+
+    <!-- Tier explanation banner -->
+    <div style="background:var(--bg-2); border:1px solid var(--line); border-radius:8px; padding:24px 32px; margin-bottom:50px; display:flex; gap:36px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+      <div style="flex:1; min-width:240px;">
+        <div style="font-family:'Caveat', cursive; font-size:22px; color:var(--gold); margin-bottom:4px;">— every bundle, three ways —</div>
+        <p style="font-size:14px; color:var(--cream-soft); line-height:1.5; margin:0;">Pick the tier that fits your night. Same bundle, three levels of pour.</p>
+      </div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--gold); font-size:14px; margin-bottom:2px;">— Classic</div>
+          <div style="font-size:11px; color:var(--cream-soft); letter-spacing:.1em; text-transform:uppercase;">Everyday</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--gold); font-size:14px; margin-bottom:2px;">— Premium</div>
+          <div style="font-size:11px; color:var(--cream-soft); letter-spacing:.1em; text-transform:uppercase;">Upgrade</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--gold); font-size:14px; margin-bottom:2px;">— Reserve</div>
+          <div style="font-size:11px; color:var(--cream-soft); letter-spacing:.1em; text-transform:uppercase;">Splurge</div>
+        </div>
+      </div>
+      <div style="font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--cream-soft); font-size:14px; flex-basis:100%; margin-top:6px;">Tier upgrades available at checkout — call (912) 673-8988 to confirm pricing</div>
+    </div>
+
+    <div class="bundle-grid">
+      <article class="bundle theme-party">
+        <div class="bundle-num">— i.</div>
+        <div class="bundle-tag">For 6–8 · Crowd-pleaser</div>
+        <div class="bundle-name">Party <em>Night</em></div>
+        <div class="bundle-mood">"the loud one"</div>
+        <p class="bundle-desc">Vodka, tequila, and a bottle of bubbles. Built to disappear by midnight — in the best way.</p>
+        <div class="bundle-includes">
+          <div class="bundle-includes-label">Inside</div>
+          <div class="bundle-includes-list">Premium American vodka 750ml<br>Silver tequila 750ml<br>Prosecco · Mixers · Limes · Recipe cards</div>
+        </div>
+        <div class="bundle-foot">
+          <div class="bundle-price">$74<small>/bundle</small></div>
+          <button class="bundle-cta" data-name="Party Night" data-price="74">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="bundle featured">
+        <div class="bundle-num">— ii.</div>
+        <div class="bundle-tag">For 2 · Most loved</div>
+        <div class="bundle-name">Date <em>Night</em></div>
+        <div class="bundle-mood">"the slow burn"</div>
+        <p class="bundle-desc">A clean Sauvignon Blanc, a small-batch bourbon, and dark chocolate that pretends it's an accident.</p>
+        <div class="bundle-includes">
+          <div class="bundle-includes-label">Inside</div>
+          <div class="bundle-includes-list">A clean Sauvignon Blanc<br>Premium American bourbon<br>Old Fashioned kit · Dark chocolate · Recipe card</div>
+        </div>
+        <div class="bundle-foot">
+          <div class="bundle-price">$58<small>/bundle</small></div>
+          <button class="bundle-cta" data-name="Date Night" data-price="58">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="bundle theme-game">
+        <div class="bundle-num">— iii.</div>
+        <div class="bundle-tag">For 4–6 · The hype</div>
+        <div class="bundle-name">Game <em>Night</em></div>
+        <div class="bundle-mood">"the hype hour"</div>
+        <p class="bundle-desc">A 12-pack rotation, two whiskey shooters per quarter, and chasers built for a screaming room.</p>
+        <div class="bundle-includes">
+          <div class="bundle-includes-label">Inside</div>
+          <div class="bundle-includes-list">Domestic 12-pack<br>Tennessee whiskey 750ml<br>Whiskey Sour kit · Lemons · Recipe card</div>
+        </div>
+        <div class="bundle-foot">
+          <div class="bundle-price">$62<small>/bundle</small></div>
+          <button class="bundle-cta" data-name="Game Night" data-price="62">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="bundle theme-girls">
+        <div class="bundle-num">— iv.</div>
+        <div class="bundle-tag">For 4–8 · Squad goals</div>
+        <div class="bundle-name">Girls <em>Night Out</em></div>
+        <div class="bundle-mood">"glow & go"</div>
+        <p class="bundle-desc">Bubbly, a bottle of pink, and a vodka soda kit. Built for laughing too loud at the same joke twice.</p>
+        <div class="bundle-includes">
+          <div class="bundle-includes-label">Inside</div>
+          <div class="bundle-includes-list">Premium Brut Champagne<br>French Provençal rosé<br>Premium vodka · Mixers · Citrus · Recipe card</div>
+        </div>
+        <div class="bundle-foot">
+          <div class="bundle-price">$98<small>/bundle</small></div>
+          <button class="bundle-cta" data-name="Girls Night Out" data-price="98">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="bundle theme-bachelor">
+        <div class="bundle-num">— v.</div>
+        <div class="bundle-tag">For 8–12 · One last time</div>
+        <div class="bundle-name">Bachelor <em>Party</em></div>
+        <div class="bundle-mood">"the send-off"</div>
+        <p class="bundle-desc">Whiskey, tequila, beer, cigars-optional. Heavy hitters for a heavy night.</p>
+        <div class="bundle-includes">
+          <div class="bundle-includes-label">Inside</div>
+          <div class="bundle-includes-list">Premium American bourbon 750ml<br>Premium reposado tequila 750ml<br>Beer 18-pack · Limes · Recipe cards</div>
+        </div>
+        <div class="bundle-foot">
+          <div class="bundle-price">$148<small>/bundle</small></div>
+          <button class="bundle-cta" data-name="Bachelor Party" data-price="148">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="bundle theme-grad">
+        <div class="bundle-num">— vi.</div>
+        <div class="bundle-tag">For 10–15 · Caps in the air</div>
+        <div class="bundle-name">Graduation <em>Party</em></div>
+        <div class="bundle-mood">"made it"</div>
+        <p class="bundle-desc">Champagne for the toast, a crowd-pleaser cocktail kit, and beer for the long haul.</p>
+        <div class="bundle-includes">
+          <div class="bundle-includes-label">Inside</div>
+          <div class="bundle-includes-list">Sparkling wine 1.5L<br>Spiced rum 1L<br>Cola · Limes · Beer 12-pack · Recipe cards</div>
+        </div>
+        <div class="bundle-foot">
+          <div class="bundle-price">$112<small>/bundle</small></div>
+          <button class="bundle-cta" data-name="Graduation Party" data-price="112">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="bundle theme-quiet">
+        <div class="bundle-num">— vii.</div>
+        <div class="bundle-tag">For 1–2 · The reset</div>
+        <div class="bundle-name">Quiet <em>One</em></div>
+        <div class="bundle-mood">"just because"</div>
+        <p class="bundle-desc">One excellent bottle, a single cocktail's worth of fixings, and zero pressure to make a night of it.</p>
+        <div class="bundle-includes">
+          <div class="bundle-includes-label">Inside</div>
+          <div class="bundle-includes-list">Premium gin 375ml<br>Fever-Tree tonic 4-pack<br>Cucumber · Lemon · Recipe card</div>
+        </div>
+        <div class="bundle-foot">
+          <div class="bundle-price">$42<small>/bundle</small></div>
+          <button class="bundle-cta" data-name="Quiet One" data-price="42">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="bundle theme-suns">
+        <div class="bundle-num">— viii.</div>
+        <div class="bundle-tag">For 4–6 · Patio energy</div>
+        <div class="bundle-name">Sun's <em>Out</em></div>
+        <div class="bundle-mood">"the long afternoon"</div>
+        <p class="bundle-desc">Margarita kit, a chilled rosé, and three citrus options because of course.</p>
+        <div class="bundle-includes">
+          <div class="bundle-includes-label">Inside</div>
+          <div class="bundle-includes-list">Premium silver tequila 750ml<br>Provençal rosé 1.5L<br>Limes · Sea salt · Tajín · Recipe card</div>
+        </div>
+        <div class="bundle-foot">
+          <div class="bundle-price">$78<small>/bundle</small></div>
+          <button class="bundle-cta" data-name="Sun's Out" data-price="78">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="bundle theme-after">
+        <div class="bundle-num">— ix.</div>
+        <div class="bundle-tag">For 2–4 · Late session</div>
+        <div class="bundle-name">After <em>Hours</em></div>
+        <div class="bundle-mood">"low and slow"</div>
+        <p class="bundle-desc">Mezcal, an aged rum, espresso syrup, and a pairing card that rewards staying up late.</p>
+        <div class="bundle-includes">
+          <div class="bundle-includes-label">Inside</div>
+          <div class="bundle-includes-list">Premium mezcal 750ml<br>Aged sipping rum 750ml<br>Espresso syrup · Cherries · Dark chocolate</div>
+        </div>
+        <div class="bundle-foot">
+          <div class="bundle-price">$92<small>/bundle</small></div>
+          <button class="bundle-cta" data-name="After Hours" data-price="92">Add to Order</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- COCKTAIL VIDEO REEL — looping silent background videos -->
+<section class="reel" id="reel">
+  <div class="container">
+    <div class="reel-head">
+      <div>
+        <div class="section-eyebrow">The Cocktail Reel</div>
+        <h2>Pour like you<br><span class="italic">know what you're doing.</span></h2>
+      </div>
+      <p>Six cocktails, six bundles, zero bartending school. Silent looping pours — recipes below each pour.</p>
+    </div>
+
+    <div class="reel-grid">
+
+      <article class="video-card">
+        <div class="video-frame">
+          <video autoplay muted loop playsinline preload="metadata"
+                 poster="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-whiskey-into-a-glass-with-ice-46247-large.mp4" type="video/mp4">
+          </video>
+          <span class="video-tag">Pouring</span>
+        </div>
+        <div class="video-meta">
+          <div class="video-num">— Reel No. 01</div>
+          <div class="video-title">The <em>Old Fashioned</em></div>
+          <div class="video-recipe">
+            <strong>Recipe</strong>
+            2 oz bourbon · 1 sugar cube · 2 dashes Angostura bitters · orange peel. Muddle, stir over ice, garnish.
+          </div>
+          <div class="video-pair">Pairs with the Date Night bundle</div>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-frame">
+          <video autoplay muted loop playsinline preload="metadata"
+                 poster="https://images.unsplash.com/photo-1582106245687-cbb466a9f07f?auto=format&fit=crop&w=600&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-bartender-pouring-a-cocktail-in-a-glass-1224-large.mp4" type="video/mp4">
+          </video>
+          <span class="video-tag">Shaking</span>
+        </div>
+        <div class="video-meta">
+          <div class="video-num">— Reel No. 02</div>
+          <div class="video-title">The <em>Margarita</em></div>
+          <div class="video-recipe">
+            <strong>Recipe</strong>
+            2 oz tequila · 1 oz lime juice · 1 oz triple sec · salt rim. Shake, strain, sip slow.
+          </div>
+          <div class="video-pair">Pairs with the Sun's Out bundle</div>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-frame">
+          <video autoplay muted loop playsinline preload="metadata"
+                 poster="https://images.unsplash.com/photo-1620360289875-25b86b9be9ee?auto=format&fit=crop&w=600&q=80">
+            <source src="https://videos.pexels.com/video-files/4051582/4051582-uhd_2560_1440_30fps.mp4" type="video/mp4">
+          </video>
+          <span class="video-tag">Espresso</span>
+        </div>
+        <div class="video-meta">
+          <div class="video-num">— Reel No. 03</div>
+          <div class="video-title">The <em>Espresso Martini</em></div>
+          <div class="video-recipe">
+            <strong>Recipe</strong>
+            2 oz premium vodka · 1 oz cold espresso · 1 oz coffee liqueur · ½ oz simple syrup. Shake hard, double-strain into chilled coupe. Three coffee beans on the foam.
+          </div>
+          <div class="video-pair">Pairs with the After Hours bundle</div>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-frame">
+          <video autoplay muted loop playsinline preload="metadata"
+                 poster="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=600&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-mojito-cocktail-with-ice-and-lime-22411-large.mp4" type="video/mp4">
+          </video>
+          <span class="video-tag">Muddling</span>
+        </div>
+        <div class="video-meta">
+          <div class="video-num">— Reel No. 04</div>
+          <div class="video-title">The <em>Mojito</em></div>
+          <div class="video-recipe">
+            <strong>Recipe</strong>
+            2 oz white rum · 1 oz lime juice · 2 tsp sugar · 6 mint leaves · soda water. Muddle, build, top.
+          </div>
+          <div class="video-pair">Pairs with the Party Night bundle</div>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-frame">
+          <video autoplay muted loop playsinline preload="metadata"
+                 poster="https://images.unsplash.com/photo-1587223962930-cb7f31384c19?auto=format&fit=crop&w=600&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-a-drink-into-a-glass-with-ice-46248-large.mp4" type="video/mp4">
+          </video>
+          <span class="video-tag">Building</span>
+        </div>
+        <div class="video-meta">
+          <div class="video-num">— Reel No. 05</div>
+          <div class="video-title">The <em>Gin & Tonic</em></div>
+          <div class="video-recipe">
+            <strong>Recipe</strong>
+            2 oz gin · 4 oz quality tonic · 1 cucumber slice · juniper berries. Build over big ice, stir gently.
+          </div>
+          <div class="video-pair">Pairs with the Quiet One bundle</div>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-frame">
+          <video autoplay muted loop playsinline preload="metadata"
+                 poster="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-cocktail-being-poured-into-a-glass-1224-large.mp4" type="video/mp4">
+          </video>
+          <span class="video-tag">Citrus</span>
+        </div>
+        <div class="video-meta">
+          <div class="video-num">— Reel No. 06</div>
+          <div class="video-title">The <em>Whiskey Sour</em></div>
+          <div class="video-recipe">
+            <strong>Recipe</strong>
+            2 oz bourbon · ¾ oz lemon juice · ¾ oz simple syrup · 1 egg white (optional). Dry shake, then wet shake.
+          </div>
+          <div class="video-pair">Pairs with the Game Night bundle</div>
+        </div>
+      </article>
+
+    </div>
+
+    <div style="text-align:center; margin-top:80px; padding-top:60px; border-top:1px solid rgba(212,175,92,.18);">
+      <p style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:22px; color:var(--cream-soft); margin-bottom:24px;">Six pours here. Twenty-four more on the menu.</p>
+      <a href="menu.html" class="btn btn-primary">View The Full Drink Menu <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="addons">
+  <div class="container">
+    <div class="section-eyebrow">Finish the Set</div>
+    <h2>The little things<br>that <span class="italic">make the night.</span></h2>
+    <p style="max-width:560px; color:var(--cream-soft); font-size:17px; margin-top:-30px; margin-bottom:50px">Add any of these to your bundle at checkout. Most are free with bundles over $75.</p>
+
+    <div class="addon-grid">
+      <div class="addon">
+        <div class="addon-icon">❄</div>
+        <div class="addon-name">Ice Pack</div>
+        <div class="addon-desc">10 lbs of crushed or cubed, your call.</div>
+        <div class="addon-price">$4<small> · add</small></div>
+      </div>
+      <div class="addon">
+        <div class="addon-icon">❦</div>
+        <div class="addon-name">Garnish Kit</div>
+        <div class="addon-desc">Citrus, herbs, bitters, salt — pre-cut.</div>
+        <div class="addon-price">$8<small> · add</small></div>
+      </div>
+      <div class="addon">
+        <div class="addon-icon">⌘</div>
+        <div class="addon-name">Glassware Rental</div>
+        <div class="addon-desc">12 highballs or rocks. We wash 'em.</div>
+        <div class="addon-price">$15<small> · add</small></div>
+      </div>
+      <div class="addon">
+        <div class="addon-icon">✦</div>
+        <div class="addon-name">Snack Pairing</div>
+        <div class="addon-desc">Curated to match your bundle.</div>
+        <div class="addon-price">$12<small> · add</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="promise">
+  <video class="promise-video" autoplay muted loop playsinline preload="metadata"
+         poster="https://images.pexels.com/videos/4051582/free-video-4051582.jpg?auto=compress&cs=tinysrgb&w=1920">
+    <source src="https://videos.pexels.com/video-files/4051582/4051582-uhd_2560_1440_30fps.mp4" type="video/mp4">
+  </video>
+  <div class="promise-overlay"></div>
+  <div class="promise-inner">
+    <div>
+      <div class="section-eyebrow">The Promise</div>
+      <h2>Why we built<br><span class="italic">NightFuels.</span></h2>
+      <p class="promise-lead">Because nobody should spend twenty minutes wandering an aisle when they could be ten minutes into the actual evening.</p>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-item">
+        <div class="promise-num">— No. 01</div>
+        <div class="promise-title">Fifteen-minute pickup</div>
+        <div class="promise-text">Order from the parking lot. We're packing while you brake.</div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-num">— No. 02</div>
+        <div class="promise-title">Honest bundle pricing</div>
+        <div class="promise-text">Always less than buying the same bottles separately. Always.</div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-num">— No. 03</div>
+        <div class="promise-title">Hand-built, not algorithmic</div>
+        <div class="promise-text">Real palates. Real pairings. No mystery filler bottles.</div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-num">— No. 04</div>
+        <div class="promise-title">Fully customizable</div>
+        <div class="promise-text">Don't like vodka? Swap it. We adjust, you sip.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="container events-inner">
+    <div class="events-img">
+      <video class="events-video" autoplay muted loop playsinline preload="metadata"
+             poster="https://images.pexels.com/videos/2620043/free-video-2620043.jpg?auto=compress&cs=tinysrgb&w=800">
+        <source src="https://videos.pexels.com/video-files/2620043/2620043-hd_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="events-overlay"></div>
+      <div class="events-monogram">
+        <div class="events-script">est. 2026</div>
+        <div class="big">N&F</div>
+        <div class="label">Hosted Events Co.</div>
+      </div>
+    </div>
+    <div class="events-content">
+      <div class="section-eyebrow">For the Hosts</div>
+      <h2>Weddings,<br>offices,<br><span class="italic">closings.</span></h2>
+      <p>Hosting a thing? We build custom bundles for events of every size — from twelve-person rehearsal dinners to four-hundred-person weddings. Volume pricing, white-glove delivery, full setup available.</p>
+      <ul class="events-list">
+        <li><div><strong>Weddings & rehearsal dinners</strong><span>Custom bar packages from $18 per guest.</span></div></li>
+        <li><div><strong>Corporate & office events</strong><span>Holiday parties, closings, client gifts.</span></div></li>
+        <li><div><strong>Vacation rentals & Airbnbs</strong><span>Pre-arrival stocking, host commission program.</span></div></li>
+        <li><div><strong>Realtor closing gifts</strong><span>Branded bundles for new homeowners.</span></div></li>
+      </ul>
+      <a href="#visit" class="btn btn-primary">Request a Quote <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST WITH OFFLINE ZIP DATABASE -->
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <div class="section-eyebrow" style="justify-content:center">Coming Soon</div>
+    <h2>Tell us<br><span class="italic">where you are.</span></h2>
+    <p class="lead">We're expanding to liquor stores nationwide through our partner program. Drop your zip and we'll let you know when NightFuels is coming to your city.</p>
+
+    <form class="waitlist-form" id="waitlistForm">
+      <input type="email" class="waitlist-input" id="waitlistEmail" placeholder="Email address" required>
+      <input type="text" class="waitlist-input" id="waitlistZip" placeholder="ZIP code" required pattern="[0-9]{5}" maxlength="5" style="max-width:140px">
+      <button type="submit" class="btn btn-primary" id="waitlistBtn">Join Waitlist</button>
+    </form>
+
+    <div class="waitlist-success" id="waitlistSuccess">
+      <div class="success-mark">✦ You're on the list ✦</div>
+      <div class="success-headline" id="successHeadline">Welcome.</div>
+      <p class="success-text" id="successText">We'll be in touch the moment we have news.</p>
+    </div>
+
+    <p class="waitlist-note">— Currently serving St. Marys & Kingsland · Expanding through 2026 —</p>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <div class="section-eyebrow">The Word Around Town</div>
+    <h2>People who'd rather not<br>be at <span class="italic">a liquor store.</span></h2>
+    <div class="review-grid">
+      <article class="review">
+        <div class="review-quote">"</div>
+        <p class="review-text">Ordered the Game Night bundle from a stoplight four minutes from JP's. It was on the shelf when I walked in. Genuinely uncanny.</p>
+        <div class="review-author">
+          <div class="review-name">— Marcus T., Kingsland</div>
+          <div class="review-bundle">Game Night</div>
+        </div>
+      </article>
+      <article class="review">
+        <div class="review-quote">"</div>
+        <p class="review-text">The Date Night kit came with a recipe card and a Spotify code. We didn't even use the playlist but I respected it deeply.</p>
+        <div class="review-author">
+          <div class="review-name">— Jenna R., St. Marys</div>
+          <div class="review-bundle">Date Night</div>
+        </div>
+      </article>
+      <article class="review">
+        <div class="review-quote">"</div>
+        <p class="review-text">Hosted a birthday with the Party Night × 2. Did the math — saved nearly forty bucks vs. grabbing the bottles myself. Will be back.</p>
+        <div class="review-author">
+          <div class="review-name">— Diego L., St. Marys</div>
+          <div class="review-bundle">Party Night</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <video class="visit-video" autoplay muted loop playsinline preload="metadata"
+         poster="https://images.pexels.com/videos/3756090/free-video-3756090.jpg?auto=compress&cs=tinysrgb&w=1920">
+    <source src="https://videos.pexels.com/video-files/3756090/3756090-uhd_2560_1440_25fps.mp4" type="video/mp4">
+  </video>
+  <div class="visit-overlay"></div>
+  <div class="visit-inner">
+    <div>
+      <div class="section-eyebrow">Find Us</div>
+      <h2>Right here on<br>the <span class="italic">Georgia coast.</span></h2>
+      <p>JP's Fine Wine and Spirits serves St. Marys, Kingsland, and the wider Camden County area. Curbside pickup, walk-ins, and event delivery — all under one roof.</p>
+      <a href="tel:+19126738988" class="btn btn-primary">Call to Order <span class="arrow">→</span></a>
+    </div>
+    <div class="visit-info">
+      <div class="visit-block">
+        <div class="visit-label">Our Store</div>
+        <div class="visit-value">JP's Fine Wine<br>and Spirits</div>
+        <div class="visit-sub">St. Marys, Georgia</div>
+      </div>
+      <div class="visit-block">
+        <div class="visit-label">Call or Text</div>
+        <div class="visit-value"><a href="tel:+19126738988">(912) 673-8988</a></div>
+        <div class="visit-sub">Same-day pickup orders welcome</div>
+      </div>
+      <div class="visit-block">
+        <div class="visit-label">Hours</div>
+        <div class="visit-value">Mon – Thu · 9am – 10pm<br>Fri – Sat · 9am – 11pm<br>Sunday · 11am – 6pm</div>
+      </div>
+      <div class="visit-block">
+        <div class="visit-label">Service Area</div>
+        <div class="visit-value">St. Marys · Kingsland<br>Woodbine · Folkston</div>
+        <div class="visit-sub">Free pickup · Delivery within 10mi</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-wrap">
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=JP%27s+Fine+Wine+and+Spirits+St+Marys+GA&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="JP's Fine Wine and Spirits Map"></iframe>
+      <div class="map-overlay">
+        <div class="label">Find Us On The Map</div>
+        <div class="name">JP's Fine Wine and Spirits</div>
+        <div class="city">St. Marys, Georgia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="#" class="logo">Night<em>fuels</em></a>
+      <p>Curated drink bundles for every kind of night. A service of JP's Fine Wine and Spirits in St. Marys, Georgia. Expanding nationally — one neighborhood at a time.</p>
+    </div>
+    <div class="foot-col">
+      <h4>The Bundles</h4>
+      <a href="#bundles">Party Night</a>
+      <a href="#bundles">Date Night</a>
+      <a href="#bundles">Game Night</a>
+      <a href="#bundles">Girls Night Out</a>
+      <a href="#bundles">Bachelor Party</a>
+      <a href="#bundles">Graduation Party</a>
+      <a href="#bundles">Quiet One</a>
+      <a href="#bundles">Sun's Out</a>
+      <a href="#bundles">After Hours</a>
+    </div>
+    <div class="foot-col">
+      <h4>Drink Menu</h4>
+      <a href="menu.html">Cocktails</a>
+      <a href="menu.html">Mocktails</a>
+      <a href="menu.html">Martinis</a>
+      <a href="menu.html">Tequila & Mezcal</a>
+      <a href="menu.html">Whiskey & Bourbon</a>
+      <a href="menu.html">Vodka</a>
+      <a href="menu.html">Gin</a>
+      <a href="menu.html">Rum</a>
+      <a href="menu.html">Single Malt</a>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <a href="#events">Weddings & Events</a>
+      <a href="#events">Corporate Orders</a>
+      <a href="#events">Vacation Rentals</a>
+      <a href="#events">Closing Gifts</a>
+      <a href="#waitlist">National Waitlist</a>
+    </div>
+    <div class="foot-col">
+      <h4>Visit</h4>
+      <a href="#visit">JP's St. Marys</a>
+      <a href="#visit">Hours & Location</a>
+      <a href="#visit">Curbside Pickup</a>
+      <a href="tel:+19126738988">(912) 673-8988</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 NightFuels · JP's Fine Wine and Spirits · St. Marys, GA</span>
+    <span class="legal">Drink Responsibly · 21+ Only · ID Required</span>
+    <span>Privacy · Terms</span>
+  </div>
+</footer>
+
+<!-- ========= CART DRAWER ========= -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your <em>Order</em></h3>
+    <button class="cart-close" id="cartClose">×</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="big">Empty for now.</div>
+      <p>Pick a bundle to get the night started.</p>
+    </div>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-totals">
+      <div class="cart-row"><span>Subtotal</span><span id="cartSubtotal">$0</span></div>
+      <div class="cart-row"><span>Pickup at JP's</span><span>Free</span></div>
+      <div class="cart-row total"><span>Total</span><span class="amount" id="cartTotal">$0</span></div>
+    </div>
+    <a href="tel:+19126738988" class="cart-checkout-link" id="cartCheckout">Call to Order — (912) 673-8988</a>
+    <p class="cart-fineprint">Have your order ready to read off — we'll have it on the shelf in 15 minutes.<br>21+ ID required at pickup. Pay in-store at JP's, St. Marys.</p>
+  </div>
+</aside>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span class="check">✓</span>
+  <div><strong id="toastName">Added</strong><br><span id="toastMsg">to your order.</span></div>
+</div>
+
+<script>
+  // ============================================================
+  // OFFLINE ZIP-TO-CITY DATABASE
+  // Built-in lookup for major US ZIPs — works without internet.
+  // Every 5-digit US ZIP starts with a "ZCTA prefix" that maps
+  // to a region; we use both exact matches AND prefix matches
+  // so any ZIP returns at least a state/region.
+  // ============================================================
+
+  const ZIP_EXACT = {
+    // Camden County, GA — JP's home turf
+    '31558': { city: "Kingsland", state: "GA", local: true },
+    '31548': { city: "Kingsland", state: "GA", local: true },
+    '31568': { city: "Woodbine", state: "GA", local: true },
+    '31537': { city: "Folkston", state: "GA", local: true },
+    '31565': { city: "Waverly", state: "GA", local: true },
+    '31569': { city: "Woodbine", state: "GA", local: true },
+    // St. Marys & nearby
+    '31558': { city: "St. Marys", state: "GA", local: true },
+    // Florida border (very local)
+    '32034': { city: "Fernandina Beach", state: "FL", nearby: true },
+    '32011': { city: "Callahan", state: "FL", nearby: true },
+    // Jacksonville metro
+    '32202': { city: "Jacksonville", state: "FL", nearby: true },
+    '32204': { city: "Jacksonville", state: "FL", nearby: true },
+    '32205': { city: "Jacksonville", state: "FL", nearby: true },
+    '32207': { city: "Jacksonville", state: "FL", nearby: true },
+    '32208': { city: "Jacksonville", state: "FL", nearby: true },
+    '32209': { city: "Jacksonville", state: "FL", nearby: true },
+    '32210': { city: "Jacksonville", state: "FL", nearby: true },
+    '32211': { city: "Jacksonville", state: "FL", nearby: true },
+    '32216': { city: "Jacksonville", state: "FL", nearby: true },
+    '32217': { city: "Jacksonville", state: "FL", nearby: true },
+    '32218': { city: "Jacksonville", state: "FL", nearby: true },
+    '32220': { city: "Jacksonville", state: "FL", nearby: true },
+    '32221': { city: "Jacksonville", state: "FL", nearby: true },
+    '32223': { city: "Jacksonville", state: "FL", nearby: true },
+    '32224': { city: "Jacksonville", state: "FL", nearby: true },
+    '32225': { city: "Jacksonville", state: "FL", nearby: true },
+    '32226': { city: "Jacksonville", state: "FL", nearby: true },
+    '32246': { city: "Jacksonville", state: "FL", nearby: true },
+    '32256': { city: "Jacksonville", state: "FL", nearby: true },
+    '32257': { city: "Jacksonville", state: "FL", nearby: true },
+    '32258': { city: "Jacksonville", state: "FL", nearby: true },
+    '32259': { city: "Jacksonville", state: "FL", nearby: true },
+    '32277': { city: "Jacksonville", state: "FL", nearby: true },
+    // Major US cities — popular ZIPs
+    '30301': { city: "Atlanta", state: "GA" },
+    '30303': { city: "Atlanta", state: "GA" },
+    '30305': { city: "Atlanta", state: "GA" },
+    '30309': { city: "Atlanta", state: "GA" },
+    '30318': { city: "Atlanta", state: "GA" },
+    '31401': { city: "Savannah", state: "GA" },
+    '31405': { city: "Savannah", state: "GA" },
+    '31410': { city: "Savannah", state: "GA" },
+    '31411': { city: "Savannah", state: "GA" },
+    '31419': { city: "Savannah", state: "GA" },
+    '31520': { city: "Brunswick", state: "GA" },
+    '31525': { city: "Brunswick", state: "GA" },
+    '31527': { city: "Jekyll Island", state: "GA" },
+    '31561': { city: "Sea Island", state: "GA" },
+    '10001': { city: "New York", state: "NY" },
+    '10011': { city: "New York", state: "NY" },
+    '10019': { city: "New York", state: "NY" },
+    '11201': { city: "Brooklyn", state: "NY" },
+    '90001': { city: "Los Angeles", state: "CA" },
+    '90028': { city: "Los Angeles", state: "CA" },
+    '90210': { city: "Beverly Hills", state: "CA" },
+    '94102': { city: "San Francisco", state: "CA" },
+    '94110': { city: "San Francisco", state: "CA" },
+    '60601': { city: "Chicago", state: "IL" },
+    '60614': { city: "Chicago", state: "IL" },
+    '33101': { city: "Miami", state: "FL" },
+    '33139': { city: "Miami Beach", state: "FL" },
+    '78701': { city: "Austin", state: "TX" },
+    '75201': { city: "Dallas", state: "TX" },
+    '77002': { city: "Houston", state: "TX" },
+    '02108': { city: "Boston", state: "MA" },
+    '02116': { city: "Boston", state: "MA" },
+    '20001': { city: "Washington", state: "DC" },
+    '98101': { city: "Seattle", state: "WA" },
+    '97201': { city: "Portland", state: "OR" },
+    '85001': { city: "Phoenix", state: "AZ" },
+    '80202': { city: "Denver", state: "CO" },
+    '37201': { city: "Nashville", state: "TN" },
+    '70112': { city: "New Orleans", state: "LA" },
+    '28202': { city: "Charlotte", state: "NC" },
+    '27601': { city: "Raleigh", state: "NC" },
+    '23218': { city: "Richmond", state: "VA" },
+    '29401': { city: "Charleston", state: "SC" },
+    '32801': { city: "Orlando", state: "FL" },
+    '33602': { city: "Tampa", state: "FL" },
+    '35203': { city: "Birmingham", state: "AL" },
+    '38103': { city: "Memphis", state: "TN" },
+    '40202': { city: "Louisville", state: "KY" },
+    '53202': { city: "Milwaukee", state: "WI" },
+    '55401': { city: "Minneapolis", state: "MN" },
+    '63101': { city: "St. Louis", state: "MO" },
+    '64101': { city: "Kansas City", state: "MO" },
+    '43201': { city: "Columbus", state: "OH" },
+    '44101': { city: "Cleveland", state: "OH" },
+    '48201': { city: "Detroit", state: "MI" },
+    '15201': { city: "Pittsburgh", state: "PA" },
+    '19103': { city: "Philadelphia", state: "PA" },
+    '21201': { city: "Baltimore", state: "MD" },
+    '32301': { city: "Tallahassee", state: "FL" }
+  };
+
+  // First-3-digit prefix → state (covers any ZIP not in exact list)
+  const ZIP_PREFIX = {
+    '300':'GA','301':'GA','302':'GA','303':'GA','304':'GA','305':'GA','306':'GA','307':'GA','308':'GA','309':'GA',
+    '310':'GA','311':'GA','312':'GA','313':'GA','314':'GA','315':'GA','316':'GA','317':'GA','318':'GA','319':'GA',
+    '320':'FL','321':'FL','322':'FL','323':'FL','324':'FL','325':'FL','326':'FL','327':'FL','328':'FL','329':'FL',
+    '330':'FL','331':'FL','332':'FL','333':'FL','334':'FL','335':'FL','336':'FL','337':'FL','338':'FL','339':'FL','341':'FL','342':'FL','344':'FL','346':'FL','347':'FL','349':'FL',
+    '350':'AL','351':'AL','352':'AL','354':'AL','355':'AL','356':'AL','357':'AL','358':'AL','359':'AL','360':'AL','361':'AL','362':'AL','363':'AL','364':'AL','365':'AL','366':'AL','367':'AL','368':'AL','369':'AL',
+    '370':'TN','371':'TN','372':'TN','373':'TN','374':'TN','375':'TN','376':'TN','377':'TN','378':'TN','379':'TN','380':'TN','381':'TN','382':'TN','383':'TN','384':'TN','385':'TN',
+    '386':'MS','387':'MS','388':'MS','389':'MS','390':'MS','391':'MS','392':'MS','393':'MS','394':'MS','395':'MS','396':'MS','397':'MS',
+    '400':'KY','401':'KY','402':'KY','403':'KY','404':'KY','405':'KY','406':'KY','407':'KY','408':'KY','409':'KY','410':'KY','411':'KY','412':'KY','413':'KY','414':'KY','415':'KY','416':'KY','417':'KY','418':'KY','420':'KY','421':'KY','422':'KY','423':'KY','424':'KY','425':'KY','426':'KY','427':'KY',
+    '430':'OH','431':'OH','432':'OH','433':'OH','434':'OH','435':'OH','436':'OH','437':'OH','438':'OH','439':'OH','440':'OH','441':'OH','442':'OH','443':'OH','444':'OH','445':'OH','446':'OH','447':'OH','448':'OH','449':'OH','450':'OH','451':'OH','452':'OH','453':'OH','454':'OH','455':'OH','456':'OH','457':'OH','458':'OH',
+    '460':'IN','461':'IN','462':'IN','463':'IN','464':'IN','465':'IN','466':'IN','467':'IN','468':'IN','469':'IN','470':'IN','471':'IN','472':'IN','473':'IN','474':'IN','475':'IN','476':'IN','477':'IN','478':'IN','479':'IN',
+    '480':'MI','481':'MI','482':'MI','483':'MI','484':'MI','485':'MI','486':'MI','487':'MI','488':'MI','489':'MI','490':'MI','491':'MI','492':'MI','493':'MI','494':'MI','495':'MI','496':'MI','497':'MI','498':'MI','499':'MI',
+    '500':'IA','501':'IA','502':'IA','503':'IA','504':'IA','505':'IA','506':'IA','507':'IA','508':'IA','509':'IA','510':'IA','511':'IA','512':'IA','513':'IA','514':'IA','515':'IA','516':'IA','520':'IA','521':'IA','522':'IA','523':'IA','524':'IA','525':'IA','526':'IA','527':'IA','528':'IA',
+    '530':'WI','531':'WI','532':'WI','534':'WI','535':'WI','537':'WI','538':'WI','539':'WI','540':'WI','541':'WI','542':'WI','543':'WI','544':'WI','545':'WI','546':'WI','547':'WI','548':'WI','549':'WI',
+    '550':'MN','551':'MN','553':'MN','554':'MN','555':'MN','556':'MN','557':'MN','558':'MN','559':'MN','560':'MN','561':'MN','562':'MN','563':'MN','564':'MN','565':'MN','566':'MN','567':'MN',
+    '600':'IL','601':'IL','602':'IL','603':'IL','604':'IL','605':'IL','606':'IL','607':'IL','608':'IL','609':'IL','610':'IL','611':'IL','612':'IL','613':'IL','614':'IL','615':'IL','616':'IL','617':'IL','618':'IL','619':'IL','620':'IL','622':'IL','623':'IL','624':'IL','625':'IL','626':'IL','627':'IL','628':'IL','629':'IL',
+    '630':'MO','631':'MO','633':'MO','634':'MO','635':'MO','636':'MO','637':'MO','638':'MO','639':'MO','640':'MO','641':'MO','644':'MO','645':'MO','646':'MO','647':'MO','648':'MO','650':'MO','651':'MO','652':'MO','653':'MO','654':'MO','655':'MO','656':'MO','657':'MO','658':'MO',
+    '700':'LA','701':'LA','703':'LA','704':'LA','705':'LA','706':'LA','707':'LA','708':'LA','710':'LA','711':'LA','712':'LA','713':'LA','714':'LA',
+    '750':'TX','751':'TX','752':'TX','753':'TX','754':'TX','755':'TX','756':'TX','757':'TX','758':'TX','759':'TX','760':'TX','761':'TX','762':'TX','763':'TX','764':'TX','765':'TX','766':'TX','767':'TX','768':'TX','769':'TX','770':'TX','771':'TX','772':'TX','773':'TX','774':'TX','775':'TX','776':'TX','777':'TX','778':'TX','779':'TX','780':'TX','781':'TX','782':'TX','783':'TX','784':'TX','785':'TX','786':'TX','787':'TX','788':'TX','789':'TX','790':'TX','791':'TX','792':'TX','793':'TX','794':'TX','795':'TX','796':'TX','797':'TX','798':'TX','799':'TX','885':'TX',
+    '800':'CO','801':'CO','802':'CO','803':'CO','804':'CO','805':'CO','806':'CO','807':'CO','808':'CO','809':'CO','810':'CO','811':'CO','812':'CO','813':'CO','814':'CO','815':'CO','816':'CO',
+    '850':'AZ','852':'AZ','853':'AZ','855':'AZ','856':'AZ','857':'AZ','859':'AZ','860':'AZ','863':'AZ','864':'AZ','865':'AZ',
+    '870':'NM','871':'NM','872':'NM','873':'NM','874':'NM','875':'NM','877':'NM','878':'NM','879':'NM','880':'NM','881':'NM','882':'NM','883':'NM','884':'NM',
+    '900':'CA','901':'CA','902':'CA','903':'CA','904':'CA','905':'CA','906':'CA','907':'CA','908':'CA','910':'CA','911':'CA','912':'CA','913':'CA','914':'CA','915':'CA','916':'CA','917':'CA','918':'CA','919':'CA','920':'CA','921':'CA','922':'CA','923':'CA','924':'CA','925':'CA','926':'CA','927':'CA','928':'CA','930':'CA','931':'CA','932':'CA','933':'CA','934':'CA','935':'CA','936':'CA','937':'CA','938':'CA','939':'CA','940':'CA','941':'CA','942':'CA','943':'CA','944':'CA','945':'CA','946':'CA','947':'CA','948':'CA','949':'CA','950':'CA','951':'CA','952':'CA','953':'CA','954':'CA','955':'CA','956':'CA','957':'CA','958':'CA','959':'CA','960':'CA','961':'CA',
+    '970':'OR','971':'OR','972':'OR','973':'OR','974':'OR','975':'OR','976':'OR','977':'OR','978':'OR',
+    '980':'WA','981':'WA','982':'WA','983':'WA','984':'WA','985':'WA','986':'WA','988':'WA','989':'WA','990':'WA','991':'WA','992':'WA','993':'WA','994':'WA',
+    '995':'AK','996':'AK','997':'AK','998':'AK','999':'AK',
+    '967':'HI','968':'HI',
+    '100':'NY','101':'NY','102':'NY','103':'NY','104':'NY','105':'NY','106':'NY','107':'NY','108':'NY','109':'NY','110':'NY','111':'NY','112':'NY','113':'NY','114':'NY','115':'NY','116':'NY','117':'NY','118':'NY','119':'NY','120':'NY','121':'NY','122':'NY','123':'NY','124':'NY','125':'NY','126':'NY','127':'NY','128':'NY','129':'NY','130':'NY','131':'NY','132':'NY','133':'NY','134':'NY','135':'NY','136':'NY','137':'NY','138':'NY','139':'NY','140':'NY','141':'NY','142':'NY','143':'NY','144':'NY','145':'NY','146':'NY','147':'NY','148':'NY','149':'NY',
+    '150':'PA','151':'PA','152':'PA','153':'PA','154':'PA','155':'PA','156':'PA','157':'PA','158':'PA','159':'PA','160':'PA','161':'PA','162':'PA','163':'PA','164':'PA','165':'PA','166':'PA','167':'PA','168':'PA','169':'PA','170':'PA','171':'PA','172':'PA','173':'PA','174':'PA','175':'PA','176':'PA','177':'PA','178':'PA','179':'PA','180':'PA','181':'PA','182':'PA','183':'PA','184':'PA','185':'PA','186':'PA','187':'PA','188':'PA','189':'PA','190':'PA','191':'PA','193':'PA','194':'PA','195':'PA','196':'PA',
+    '197':'DE','198':'DE','199':'DE',
+    '200':'DC','202':'DC','203':'DC','204':'DC','205':'DC',
+    '206':'MD','207':'MD','208':'MD','209':'MD','210':'MD','211':'MD','212':'MD','214':'MD','215':'MD','216':'MD','217':'MD','218':'MD','219':'MD',
+    '220':'VA','221':'VA','222':'VA','223':'VA','224':'VA','225':'VA','226':'VA','227':'VA','228':'VA','229':'VA','230':'VA','231':'VA','232':'VA','233':'VA','234':'VA','235':'VA','236':'VA','237':'VA','238':'VA','239':'VA','240':'VA','241':'VA','242':'VA','243':'VA','244':'VA','245':'VA','246':'VA',
+    '247':'WV','248':'WV','249':'WV','250':'WV','251':'WV','252':'WV','253':'WV','254':'WV','255':'WV','256':'WV','257':'WV','258':'WV','259':'WV','260':'WV','261':'WV','262':'WV','263':'WV','264':'WV','265':'WV','266':'WV','267':'WV','268':'WV',
+    '270':'NC','271':'NC','272':'NC','273':'NC','274':'NC','275':'NC','276':'NC','277':'NC','278':'NC','279':'NC','280':'NC','281':'NC','282':'NC','283':'NC','284':'NC','285':'NC','286':'NC','287':'NC','288':'NC','289':'NC',
+    '290':'SC','291':'SC','292':'SC','293':'SC','294':'SC','295':'SC','296':'SC','297':'SC','298':'SC','299':'SC',
+    '666':'KS','667':'KS','668':'KS','669':'KS','670':'KS','671':'KS','672':'KS','673':'KS','674':'KS','675':'KS','676':'KS','677':'KS','678':'KS','679':'KS',
+    '680':'NE','681':'NE','683':'NE','684':'NE','685':'NE','686':'NE','687':'NE','688':'NE','689':'NE','690':'NE','691':'NE','692':'NE','693':'NE',
+    '730':'OK','731':'OK','734':'OK','735':'OK','736':'OK','737':'OK','738':'OK','739':'OK','740':'OK','741':'OK','743':'OK','744':'OK','745':'OK','746':'OK','747':'OK','748':'OK','749':'OK',
+    '716':'AR','717':'AR','718':'AR','719':'AR','720':'AR','721':'AR','722':'AR','723':'AR','724':'AR','725':'AR','726':'AR','727':'AR','728':'AR','729':'AR',
+    '570':'SD','571':'SD','572':'SD','573':'SD','574':'SD','575':'SD','576':'SD','577':'SD',
+    '580':'ND','581':'ND','582':'ND','583':'ND','584':'ND','585':'ND','586':'ND','587':'ND','588':'ND',
+    '590':'MT','591':'MT','592':'MT','593':'MT','594':'MT','595':'MT','596':'MT','597':'MT','598':'MT','599':'MT',
+    '820':'WY','821':'WY','822':'WY','823':'WY','824':'WY','825':'WY','826':'WY','827':'WY','828':'WY','829':'WY','830':'WY','831':'WY',
+    '832':'ID','833':'ID','834':'ID','835':'ID','836':'ID','837':'ID','838':'ID',
+    '840':'UT','841':'UT','842':'UT','843':'UT','844':'UT','845':'UT','846':'UT','847':'UT',
+    '889':'NV','890':'NV','891':'NV','893':'NV','894':'NV','895':'NV','897':'NV','898':'NV',
+    '010':'MA','011':'MA','012':'MA','013':'MA','014':'MA','015':'MA','016':'MA','017':'MA','018':'MA','019':'MA','020':'MA','021':'MA','022':'MA','023':'MA','024':'MA','025':'MA','026':'MA','027':'MA',
+    '028':'RI','029':'RI',
+    '030':'NH','031':'NH','032':'NH','033':'NH','034':'NH','035':'NH','036':'NH','037':'NH','038':'NH',
+    '039':'ME','040':'ME','041':'ME','042':'ME','043':'ME','044':'ME','045':'ME','046':'ME','047':'ME','048':'ME','049':'ME',
+    '050':'VT','051':'VT','052':'VT','053':'VT','054':'VT','056':'VT','057':'VT','058':'VT','059':'VT',
+    '060':'CT','061':'CT','062':'CT','063':'CT','064':'CT','065':'CT','066':'CT','067':'CT','068':'CT','069':'CT',
+    '070':'NJ','071':'NJ','072':'NJ','073':'NJ','074':'NJ','075':'NJ','076':'NJ','077':'NJ','078':'NJ','079':'NJ','080':'NJ','081':'NJ','082':'NJ','083':'NJ','084':'NJ','085':'NJ','086':'NJ','087':'NJ','088':'NJ','089':'NJ'
+  };
+
+  const STATE_NAMES = {
+    AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",
+    DE:"Delaware",DC:"Washington, D.C.",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",
+    IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",
+    MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",
+    NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",
+    OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
+    TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",
+    WI:"Wisconsin",WY:"Wyoming"
+  };
+
+  function lookupZip(zip){
+    if(ZIP_EXACT[zip]) return ZIP_EXACT[zip];
+    const prefix = zip.substring(0,3);
+    if(ZIP_PREFIX[prefix]){
+      const state = ZIP_PREFIX[prefix];
+      return { city: null, state: state, region: STATE_NAMES[state] };
+    }
+    return null;
+  }
+
+  // ============================================================
+  // WAITLIST FORM
+  // ============================================================
+  const form = document.getElementById('waitlistForm');
+  const successBox = document.getElementById('waitlistSuccess');
+  const successHeadline = document.getElementById('successHeadline');
+  const successText = document.getElementById('successText');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('waitlistEmail').value.trim();
+    const zip = document.getElementById('waitlistZip').value.trim();
+
+    if (!email || !/^\d{5}$/.test(zip)) {
+      alert('Please enter a valid email and 5-digit ZIP code.');
+      return;
+    }
+
+    const result = lookupZip(zip);
+
+    let headline = '';
+    let message = '';
+
+    if (result && result.local) {
+      // Camden County customers — already served!
+      headline = 'Hey <span class="italic">' + result.city + '</span>!';
+      message = "Good news — you're already in our service area. JP's Fine Wine and Spirits delivers and offers curbside pickup right to " + result.city + ". Skip the waitlist and place your order tonight.";
+    } else if (result && result.nearby) {
+      // Florida nearby
+      headline = 'Hello, <span class="italic">' + result.city + '</span>!';
+      message = "We're just across the state line in St. Marys — and we deliver to " + result.city + ", " + STATE_NAMES[result.state] + " for events and bulk orders. Drop us a call and let's talk.";
+    } else if (result && result.city) {
+      // Major US city
+      headline = 'Hey <span class="italic">' + result.city + '</span>!';
+      message = "We're coming to " + result.city + ", " + STATE_NAMES[result.state] + " soon — and you'll be the first to know. In the meantime, pour something good.";
+    } else if (result && result.region) {
+      // State-only fallback
+      headline = 'Hey <span class="italic">' + result.region + '</span>!';
+      message = "We're expanding to " + result.region + " soon — and you'll be among the first to know when NightFuels lands in your neighborhood.";
+    } else {
+      // Total fallback
+      headline = "You're <span class='italic'>on the list</span>.";
+      message = "We'll be in touch the moment we have news for your area. In the meantime, pour something good.";
+    }
+
+    successHeadline.innerHTML = headline;
+    successText.textContent = message;
+
+    form.style.display = 'none';
+    successBox.classList.add('show');
+
+    setTimeout(() => {
+      successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  });
+
+  // ============================================================
+  // CART SYSTEM
+  // ============================================================
+  let cart = [];
+
+  const cartBtn = document.getElementById('cartBtn');
+  const cartCount = document.getElementById('cartCount');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartClose = document.getElementById('cartClose');
+  const cartItemsBox = document.getElementById('cartItems');
+  const cartEmpty = document.getElementById('cartEmpty');
+  const cartSubtotal = document.getElementById('cartSubtotal');
+  const cartTotal = document.getElementById('cartTotal');
+  const toast = document.getElementById('toast');
+  const toastName = document.getElementById('toastName');
+  const toastMsg = document.getElementById('toastMsg');
+
+  function openCart(){
+    cartDrawer.classList.add('open');
+    cartOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCart(){
+    cartDrawer.classList.remove('open');
+    cartOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  cartBtn.addEventListener('click', openCart);
+  cartClose.addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+
+  function addToCart(name, price){
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+      existing.qty++;
+    } else {
+      cart.push({ name, price, qty: 1 });
+    }
+    renderCart();
+    showToast(name);
+  }
+
+  function removeFromCart(name){
+    cart = cart.filter(item => item.name !== name);
+    renderCart();
+  }
+
+  function changeQty(name, delta){
+    const item = cart.find(i => i.name === name);
+    if(!item) return;
+    item.qty += delta;
+    if(item.qty <= 0) {
+      removeFromCart(name);
+    } else {
+      renderCart();
+    }
+  }
+
+  function renderCart(){
+    const totalQty = cart.reduce((sum,i) => sum + i.qty, 0);
+    cartCount.textContent = totalQty;
+
+    if(cart.length === 0){
+      cartItemsBox.innerHTML = '<div class="cart-empty"><div class="big">Empty for now.</div><p>Pick a bundle to get the night started.</p></div>';
+      cartSubtotal.textContent = '$0';
+      cartTotal.textContent = '$0';
+      return;
+    }
+
+    let html = '';
+    let subtotal = 0;
+    cart.forEach(item => {
+      const lineTotal = item.price * item.qty;
+      subtotal += lineTotal;
+      html += '<div class="cart-item">';
+      html += '<div class="cart-item-info">';
+      // Italicize the second word of each bundle name for visual rhythm
+      const styledName = item.name
+        .replace(/ Night Out/, ' <em>Night Out</em>')
+        .replace(/ Night/, ' <em>Night</em>')
+        .replace(/ One/, ' <em>One</em>')
+        .replace(/ Out/, ' <em>Out</em>')
+        .replace(/ Hours/, ' <em>Hours</em>')
+        .replace(/ Party/, ' <em>Party</em>');
+      html += '<div class="cart-item-name">' + styledName + '</div>';
+      html += '<div class="cart-item-tag">$' + item.price + ' per bundle</div>';
+      html += '<div class="cart-item-controls">';
+      html += '<button class="qty-btn" onclick="changeQty(\'' + item.name + '\', -1)">−</button>';
+      html += '<span class="qty-num">' + item.qty + '</span>';
+      html += '<button class="qty-btn" onclick="changeQty(\'' + item.name + '\', 1)">+</button>';
+      html += '<button class="cart-item-remove" onclick="removeFromCart(\'' + item.name + '\')">Remove</button>';
+      html += '</div>';
+      html += '</div>';
+      html += '<div class="cart-item-price">$' + lineTotal + '</div>';
+      html += '</div>';
+    });
+
+    cartItemsBox.innerHTML = html;
+    cartSubtotal.textContent = '$' + subtotal;
+    cartTotal.textContent = '$' + subtotal;
+  }
+
+  function showToast(name){
+    toastName.textContent = name + ' added';
+    toastMsg.textContent = 'View cart to check out.';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+
+  // Wire up all "Add to Order" buttons
+  document.querySelectorAll('.bundle-cta').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.getAttribute('data-name');
+      const price = parseInt(btn.getAttribute('data-price'), 10);
+      addToCart(name, price);
+      btn.classList.add('added');
+      btn.textContent = '✓ Added';
+      setTimeout(() => {
+        btn.classList.remove('added');
+        btn.textContent = 'Add to Order';
+      }, 1400);
+    });
+  });
+
+  // Make cart functions available globally for inline onclick handlers
+  window.changeQty = changeQty;
+  window.removeFromCart = removeFromCart;
+</script>
+
+</body>
+</html>
